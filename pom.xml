@@ -18,9 +18,9 @@
             <url>https://jcenter.bintray.com</url>
         </repository>
         <repository>
-            <id>bintray-sedmelluq-com.sedmelluq</id>
+            <id>com.sedmelluq:lavaplayer:1.3.77</id>
             <name>bintray</name>
-            <url>https://dl.bintray.com/sedmelluq/com.sedmelluq</url>
+            <url>https://m2.dv8tion.net/releases</url>
         </repository>
     </repositories>
     
