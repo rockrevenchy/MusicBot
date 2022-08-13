@@ -39,6 +39,9 @@ jobs:
 
       # run tests!
       - run: mvn integration-test
+      
+      - store_artifacts:
+          path: /home/circleci/repo/target/
 
 workflows:
   version: 2
