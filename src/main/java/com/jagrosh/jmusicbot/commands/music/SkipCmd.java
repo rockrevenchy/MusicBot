@@ -32,7 +32,7 @@ public class SkipCmd extends MusicCommand
     {
         super(bot);
         this.name = "skip";
-        this.help = "votes to skip the current song";
+        this.help = "Skip the current song";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.beListening = true;
         this.bePlaying = true;
@@ -54,16 +54,16 @@ public class SkipCmd extends MusicCommand
                     .filter(m -> !m.getUser().isBot() && !m.getVoiceState().isDeafened()).count();
             String msg;
             if(handler.getVotes().contains(event.getAuthor().getId()))
-                msg = event.getClient().getWarning()+" You already voted to skip this song `[";
+                msg = event.getClient().getWarning()+" You already requested to skip this song `[";
             else
             {
-                msg = event.getClient().getSuccess()+" You voted to skip the song `[";
+                msg = event.getClient().getSuccess()+" You requested to skip the song `[";
                 handler.getVotes().add(event.getAuthor().getId());
             }
             int skippers = (int)event.getSelfMember().getVoiceState().getChannel().getMembers().stream()
                     .filter(m -> handler.getVotes().contains(m.getUser().getId())).count();
-            int required = (int)Math.ceil(listeners * bot.getSettingsManager().getSettings(event.getGuild()).getSkipRatio());
-            msg += skippers + " votes, " + required + "/" + listeners + " needed]`";
+            int required = (int)Math.ceil(1);
+            /*msg += skippers + " votes, " + required + "/" + listeners + " needed]`";*/
             if(skippers>=required)
             {
                 msg += "\n" + event.getClient().getSuccess() + " Skipped **" + handler.getPlayer().getPlayingTrack().getInfo().title
